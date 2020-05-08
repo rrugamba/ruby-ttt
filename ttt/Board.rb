@@ -1,5 +1,5 @@
 class Board
-  def Say
+  def display
     "hello world"
   end
 end
