@@ -1,7 +1,5 @@
 class Board
-  @dimension
-  @length
-  @array
+  attr_reader :dimension, :length, :array
 
   def initialize(size)
     @dimension = size
@@ -32,7 +30,7 @@ class Board
 
   def find_all_empty_positions
     @array.select { |cell| cell.is_a? Integer }
-        .map! { |value| value - 1 }
+        .map { |value| value - 1 }
   end
 
   def tie?

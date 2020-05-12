@@ -1,6 +1,6 @@
 class Symbols
-  @ai
-  @human
+  attr_reader :ai, :human
+
   def initialize(ai_symbol, human_symbol)
     @ai = ai_symbol
     @human = human_symbol
@@ -8,14 +8,6 @@ class Symbols
 
   def switch(symbol)
     symbol == @ai ? @human : @ai
-  end
-
-  def get_human
-    @human
-  end
-
-  def get_ai
-    @ai
   end
 
   def get_all
