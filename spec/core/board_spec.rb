@@ -1,5 +1,5 @@
 require './helpers/Helper'
-require '../ttt/Board'
+require '../../ttt/core/Board'
 
 describe Board do
   let(:helper) { Helper.new }

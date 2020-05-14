@@ -1,7 +1,7 @@
 require './fakes/Input'
 require './helpers/helper'
-require '../ttt/Human'
-require '../ttt/Board'
+require '../../ttt/core/Human'
+require '../../ttt/core/Board'
 
 describe Human do
   let(:helper) { Helper.new }

@@ -44,7 +44,7 @@ class Board
 
   def has_winner?
     is_horizontal_win? || is_vertical_win? || is_diagonal_win?
-  endw
+  end
 
   def is_horizontal_win?
     @array[0] == @array[1] && @array[1] == @array[2] ||
@@ -61,7 +61,5 @@ class Board
   def is_diagonal_win?
     @array[0] == @array[4] && @array[4] == @array[8] ||
     @array[2] == @array[4] && @array[4] == @array[6]
-  end
-
   end
 end

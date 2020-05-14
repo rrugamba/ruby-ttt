@@ -1,8 +1,8 @@
 require './helpers/Helper'
-require '../ttt/Minimax'
-require '../ttt/Board'
-require '../ttt/Ai'
-require '../ttt/Symbols'
+require '../../ttt/core/Minimax'
+require '../../ttt/core/Board'
+require '../../ttt/core/Ai'
+require '../../ttt/core/Symbols'
 
 describe Minimax do
   let(:helper) { Helper.new }

@@ -1,4 +1,4 @@
-require '../ttt/Ai'
+require '../../ttt/core/Ai'
 
 describe Ai do
   context "creates a player" do

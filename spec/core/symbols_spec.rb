@@ -1,4 +1,4 @@
-require '../ttt/Symbols'
+require '../../ttt/core/Symbols'
 
 describe Symbols do
   context "switches players" do
