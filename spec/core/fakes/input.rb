@@ -5,7 +5,7 @@ class Input
     @move = move
   end
 
-  def get_move(board)
+  def get_move
     @move
   end
 end

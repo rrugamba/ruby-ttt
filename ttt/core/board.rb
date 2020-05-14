@@ -17,7 +17,7 @@ class Board
 
   def is_out_of_range?(position)
     actual_position = position - 1
-    actual_position < 0 || actual_position > (length - 1)
+    actual_position < 0 || actual_position > length
   end
 
   def make_move(position, symbol)
