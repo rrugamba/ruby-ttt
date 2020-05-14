@@ -21,7 +21,7 @@ describe Board do
     end
 
     it "makes a move on the board" do
-      board.make_move(0, 'x')
+      board.make_move(1, 'x')
       expect(board.current_state).to eq(['x',2,3,4,5,6,7,8,9])
     end
 
@@ -31,7 +31,7 @@ describe Board do
     end
 
     it "gets current number of available spots on board" do
-      board.make_move(4, 'x')
+      board.make_move(5, 'x')
       expect(board.current_state).to eq([1,2,3,4,'x',6,7,8,9])
       expect(board.number_of_empty_positions).to eq(8)
     end
@@ -40,46 +40,46 @@ describe Board do
   context "detecting winning combinations" do
     context "horizontal wins" do
       it "detects first winning combination" do
-        helper.fill_board(board, [0,1,2], %w[x x x])
+        helper.fill_board(board, [1,2,3], %w[x x x])
         expect(board).to be_is_horizontal_win
       end
 
       it "detects second winning combination" do
-        helper.fill_board(board, [3,4,5], %w[x x x])
+        helper.fill_board(board, [4,5,6], %w[x x x])
         expect(board).to be_is_horizontal_win
       end
 
       it "detects third winning combination" do
-        helper.fill_board(board, [6,7,8], %w[x x x])
+        helper.fill_board(board, [7,8,9], %w[x x x])
         expect(board).to be_is_horizontal_win
       end
     end
 
     context "vertical wins" do
       it "detects first winning combination" do
-        helper.fill_board(board, [0,3,6], %w[x x x])
-        expect(board).to be_is_vertical_win
-      end
-
-      it "detects second winning combination" do
         helper.fill_board(board, [1,4,7], %w[x x x])
         expect(board).to be_is_vertical_win
       end
 
-      it "detects third winning combination" do
+      it "detects second winning combination" do
         helper.fill_board(board, [2,5,8], %w[x x x])
+        expect(board).to be_is_vertical_win
+      end
+
+      it "detects third winning combination" do
+        helper.fill_board(board, [3,6,9], %w[x x x])
         expect(board).to be_is_vertical_win
       end
     end
 
     context "diagonal wins" do
       it "detects first winning combination" do
-        helper.fill_board(board, [0,4,8], %w[x x x])
+        helper.fill_board(board, [1,5,9], %w[x x x])
         expect(board).to be_is_diagonal_win
       end
 
       it "detects second winning combination" do
-        helper.fill_board(board, [2,4,6], %w[x x x])
+        helper.fill_board(board, [3,5,7], %w[x x x])
         expect(board).to be_is_diagonal_win
       end
     end
@@ -87,12 +87,12 @@ describe Board do
 
   context "detects win on the board" do
     it "board has winner" do
-      helper.fill_board(board, [2,4,6], %w[x x x])
+      helper.fill_board(board, [3,5,7], %w[x x x])
       expect(board).to be_has_winner
     end
 
     it "board has no winner" do
-      helper.fill_board(board, [2,4,6], %w[x o x])
+      helper.fill_board(board, [3,5,7], %w[x o x])
       expect(board).not_to be_has_winner
     end
   end

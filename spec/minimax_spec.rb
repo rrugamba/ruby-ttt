@@ -18,7 +18,7 @@ describe Minimax do
     # o x o
     # o x -
     it "one spot left " do
-      @board =  helper.fill_board(@board, [0,1,2,3,4,5,6,7], %w[x o x o x o o x])
+      @board =  helper.fill_board(@board, [1,2,3,4,5,6,7,8], %w[x o x o x o o x])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(8)
@@ -28,7 +28,7 @@ describe Minimax do
     # o x -
     # x o -
     it "two spots left" do
-      @board =  helper.fill_board(@board, [0,1,2,3,4,6,7], %w[x o o o x x o])
+      @board =  helper.fill_board(@board, [1,2,3,4,5,7,8], %w[x o o o x x o])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(8)
@@ -38,7 +38,7 @@ describe Minimax do
     # o x -
     # - - -
     it "makes winning move instead of blocking" do
-      @board =  helper.fill_board(@board, [0,1,3,4], %w[o x o x])
+      @board =  helper.fill_board(@board, [1,2,4,5], %w[o x o x])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(7)
@@ -50,7 +50,7 @@ describe Minimax do
     # o x -
     # - o x
     it "1st blocking " do
-      @board =  helper.fill_board(@board, [0,1,2,3,4,7,8], %w[o x o o x o x])
+      @board =  helper.fill_board(@board, [1,2,3,4,5,8,9], %w[o x o o x o x])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(6)
@@ -60,7 +60,7 @@ describe Minimax do
     # o x -
     # - o -
     it "2nd blocking" do
-      @board =  helper.fill_board(@board, [0,1,3,4,7], %w[o x o x o])
+      @board =  helper.fill_board(@board, [1,2,4,5,8], %w[o x o x o])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(6)
@@ -70,7 +70,7 @@ describe Minimax do
     # o x -
     # - x -
     it "3rd blocking " do
-      @board =  helper.fill_board(@board, [0,1,3,4,6,7], %w[o o o x x])
+      @board =  helper.fill_board(@board, [1,2,4,5,7,8], %w[o o o x x])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(2)
@@ -80,7 +80,7 @@ describe Minimax do
     # x - -
     # x o o
     it "4th blocking " do
-      @board =  helper.fill_board(@board, [0,2,3,6,7,8], %w[o x x x o o])
+      @board =  helper.fill_board(@board, [1,3,4,7,8,9], %w[o x x x o o])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(4)
@@ -90,7 +90,7 @@ describe Minimax do
     # x o -
     # - - -
     it "5th blocking " do
-      @board =  helper.fill_board(@board, [0,3,4], %w[o x o])
+      @board =  helper.fill_board(@board, [1,4,5], %w[o x o])
       best_move =  player.move_strategy(@board,  symbols)
 
       expect(best_move).to eq(8)

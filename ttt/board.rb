@@ -7,22 +7,27 @@ class Board
     @array = Array.new(@length) { |index| index += 1 }
   end
 
-  def length
-    @length
+  def update_board_state(board_array)
+    @array = board_array
+  end
+
+  def is_empty_position?(position)
+    @array[position - 1].is_a? Integer
+  end
+
+  def is_out_of_range?(position)
+    actual_position = position - 1
+    actual_position < 0 || actual_position > (length - 1)
+  end
+
+  def make_move(position, symbol)
+    @array[position - 1] = symbol
   end
 
   def current_state
     @array
   end
 
-  def update_board_state(board_array)
-    @array = board_array
-  end
-
-  def make_move(position, symbol)
-    @array[position] = symbol
-  end
-  
   def number_of_empty_positions
     @array.select { |index| index.is_a? Integer }
           .length
