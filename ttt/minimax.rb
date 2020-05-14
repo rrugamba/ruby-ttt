@@ -27,7 +27,7 @@ class Minimax
         best_score = score
         best_move = position
       end
-      copy_of_board = [].replace(original_board)
+      copy_of_board = original_board.clone
       @current_symbol = @ai_symbol
     end
     best_move
@@ -52,7 +52,7 @@ class Minimax
       if score < least_score
         least_score = score
       end
-      copy_of_board = [].replace(original_board)
+      copy_of_board = original_board.clone
     end
     least_score
   end
