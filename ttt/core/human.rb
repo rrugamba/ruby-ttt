@@ -1,5 +1,5 @@
-require_relative 'Player'
-require_relative 'Get'
+require_relative 'player'
+require_relative 'get'
 
 class Human
   include Player
