@@ -1,5 +1,5 @@
-require_relative 'Player'
-require_relative 'Minimax'
+require_relative 'player'
+require_relative 'minimax'
 
 class Ai
   include Player

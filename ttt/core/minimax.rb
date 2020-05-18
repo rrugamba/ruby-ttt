@@ -2,7 +2,8 @@ require_relative 'ai'
 require_relative 'symbols'
 
 class Minimax
-  attr_reader :board, :ai_symbol, :current_symbol, :human_symbol, :winner, :symbols
+  attr_reader :board, :current_symbol, :symbols,
+              :ai_symbol, :human_symbol, :winner
 
   def initialize(board, symbols)
     @board = board
@@ -18,6 +19,7 @@ class Minimax
 
     original_board = @board.current_state
     copy_of_board = original_board.clone
+
     @current_symbol = @ai_symbol
 
     @board.find_all_empty_positions.each do | position |
@@ -27,9 +29,11 @@ class Minimax
         best_score = score
         best_move = position
       end
-      copy_of_board = [].replace(original_board)
+      copy_of_board = original_board.clone
       @current_symbol = @ai_symbol
     end
+
+    @board.update_board_state(original_board)
     best_move
   end
 
@@ -48,12 +52,14 @@ class Minimax
 
     @board.find_all_empty_positions.each do | position |
       copy_of_board[position] = @current_symbol
-      score = compute(copy_of_board, depth)
+      score = -compute(copy_of_board, depth)
       if score < least_score
         least_score = score
       end
-      copy_of_board = [].replace(original_board)
+      copy_of_board = original_board.clone
     end
+
+    @board.update_board_state(original_board)
     least_score
   end
 

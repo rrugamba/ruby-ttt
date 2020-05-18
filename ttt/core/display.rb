@@ -1,5 +1,7 @@
-module Get
-  def get_move(board)
+class Display
+
+  def print(board)
     raise "Not Implemented"
   end
+
 end

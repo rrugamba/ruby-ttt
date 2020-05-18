@@ -7,22 +7,27 @@ class Board
     @array = Array.new(@length) { |index| index += 1 }
   end
 
-  def length
-    @length
+  def update_board_state(board_array)
+    @array = board_array
+  end
+
+  def is_empty_position?(position)
+    @array[position - 1].is_a? Integer
+  end
+
+  def is_out_of_range?(position)
+    actual_position = position - 1
+    actual_position < 0 || actual_position > length
+  end
+
+  def make_move(position, symbol)
+    @array[position - 1] = symbol
   end
 
   def current_state
     @array
   end
 
-  def update_board_state(board_array)
-    @array = board_array
-  end
-
-  def make_move(position, symbol)
-    @array[position] = symbol
-  end
-  
   def number_of_empty_positions
     @array.select { |index| index.is_a? Integer }
           .length
@@ -36,6 +41,7 @@ class Board
   def tie?
     !has_winner? && number_of_empty_positions == 0
   end
+
   def has_winner?
     is_horizontal_win? || is_vertical_win? || is_diagonal_win?
   end
@@ -56,5 +62,4 @@ class Board
     @array[0] == @array[4] && @array[4] == @array[8] ||
     @array[2] == @array[4] && @array[4] == @array[6]
   end
-
 end
