@@ -4,13 +4,13 @@ require '../../ttt/core/Board'
 require '../../ttt/core/Ai'
 require '../../ttt/core/Symbols'
 
-describe Minimax do
+describe Core::Minimax do
   let(:helper) { Helper.new }
-  let(:player) { Ai.new }
-  let(:symbols) { Symbols.new('x', 'o') }
+  let(:player) { Core::Ai.new }
+  let(:symbols) { Core::Symbols.new('x', 'o') }
 
   before(:each) do
-    @board = Board.new(3)
+    @board = Core::Board.new(3)
   end
 
   context "makes winning move" do

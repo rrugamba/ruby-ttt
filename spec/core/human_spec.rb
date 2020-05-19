@@ -3,14 +3,14 @@ require './helpers/helper'
 require '../../ttt/core/Human'
 require '../../ttt/core/Board'
 
-describe Human do
+describe Core::Human do
   let(:helper) { Helper.new }
-  let(:board) { Board.new(3) }
-  let(:player) { Human.new }
+  let(:board) { Core::Board.new(3) }
+  let(:player) { Core::Human.new }
 
   context "creates a player" do
     it "a human player" do
-      expect(player).to be_instance_of(Human)
+      expect(player).to be_instance_of(Core::Human)
     end
   end
 
