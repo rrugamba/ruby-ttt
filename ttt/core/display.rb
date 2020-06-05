@@ -1,7 +1,11 @@
-class Display
+module Core
 
-  def print(board)
-    raise "Not Implemented"
+  class Display
+   
+    def print(board)
+      raise "Not Implemented"
+    end
+    
   end
-
+  
 end

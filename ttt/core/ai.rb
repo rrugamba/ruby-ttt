@@ -1,11 +1,15 @@
 require_relative 'player'
 require_relative 'minimax'
 
-class Ai
-  include Player
+module Core
 
-  def move_strategy(board, symbols)
-    minimax = Minimax.new(board, symbols)
-    minimax.get_best_move
+  class Ai
+    
+    def move_strategy(board, symbols)
+      minimax = Minimax.new(board, symbols)
+      minimax.get_best_move
+    end
+
   end
+
 end

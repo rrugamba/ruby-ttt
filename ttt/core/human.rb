@@ -1,11 +1,14 @@
 require_relative 'player'
 require_relative 'get'
 
-class Human
-  include Player
+module Core
 
-  def move_strategy(input_source)
-    input_source.get_move
+  class Human
+
+    def move_strategy(input_source)
+      input_source.get_move
+    end
+    
   end
 
 end

@@ -1,5 +1,11 @@
-module Player
-  def move_strategy(board)
-    raise "Not implemented"
+module Core
+
+  class Player
+    
+    def move_strategy(board)
+      raise "Not implemented"
+    end
+    
   end
+
 end

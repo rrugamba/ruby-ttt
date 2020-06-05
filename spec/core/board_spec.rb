@@ -1,9 +1,9 @@
 require './helpers/Helper'
 require '../../ttt/core/Board'
 
-describe Board do
+describe Core::Board do
   let(:helper) { Helper.new }
-  let(:board) { Board.new(3) }
+  let(:board) { Core::Board.new(3) }
 
   context "creating the board, making moves on board" do
     it "creates a 3 x 3 board" do
@@ -11,7 +11,7 @@ describe Board do
     end
 
     it "creates 4 x 4 board" do
-      board = Board.new(4)
+      board = Core::Board.new(4)
       expect(board.length).to eq(16)
     end
 
