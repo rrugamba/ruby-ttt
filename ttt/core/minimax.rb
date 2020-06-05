@@ -69,6 +69,7 @@ module Core
 
       end
 
+      @current_symbol = @symbols.switch(@current_symbol)
       @board.update_board_state(original_board)
       least_score
 
