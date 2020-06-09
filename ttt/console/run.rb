@@ -1,6 +1,6 @@
 require_relative 'play'
 
-wmodule Console
+module Console
 
   class Run
     input = Input.new
