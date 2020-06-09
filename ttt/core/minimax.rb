@@ -27,19 +27,12 @@ module Core
       @board.find_all_empty_positions.each do | position |
         copy_of_board[position] = @current_symbol
         score = compute(copy_of_board, depth += 1 )
-        
         if score > best_score
           best_score = score
           best_move = position
         end
-
-        copy_of_board = original_board.clone
-        @current_symbol = @ai_symbol
-
       end
 
-      
-      @board.update_board_state(original_board)
       best_move
     end
 
@@ -60,17 +53,12 @@ module Core
       @board.find_all_empty_positions.each do | position |
         copy_of_board[position] = @current_symbol
         score = compute(copy_of_board, depth)
-
         if score < least_score
           least_score = score
         end
-
-        copy_of_board = original_board.clone
-
       end
 
       @current_symbol = @symbols.switch(@current_symbol)
-      @board.update_board_state(original_board)
       least_score
 
     end
